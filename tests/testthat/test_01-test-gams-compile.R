@@ -4,21 +4,11 @@
 # |  AGPL-3.0, you are granted additional permissions described in the
 # |  REMIND License Exception, version 1.0 (see LICENSE file).
 # |  Contact: remind@pik-potsdam.de
-
-library(remind2)
-
-if (!exists("outputdir")) {
-  # Define arguments that can be read from command line
-  readArgs("outputdir")
-}
-
-gdx_name <- "fulldata.gdx"
-gdx <- file.path(outputdir, gdx_name)
-
-dir_name <- tail(strsplit(outputdir, split = "/")[[1]], n = 1)
-
-remind2::nashAnalysis(
-  gdx = gdx,
-  outputDir = outputdir,
-  outputFile = paste0("NashAnalysis_", dir_name, ".html")
-)
+test_that(
+  'gams -a=c works on stock configuration',
+  {
+    expect_equal(
+      attr(localSystem2('gams', 'main.gms -a=c -errmsg=1 -pw=185 -ps=0'),
+	   'status'),
+      0)
+  })
