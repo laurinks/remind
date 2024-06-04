@@ -37,25 +37,25 @@ elseif cm_co2_tax_2020 ge 0,
 
 
 
-p45_CO2priceTrajDeveloped(ttot)$((ttot.val gt 2005) AND (ttot.val ge cm_startyear)) = p45_CO2priceTrajDeveloped("2040")*( 1 + 0.1/3 * (ttot.val-2040)); !! no CO2 price in 2005 and only change CO2 prices after ; 
+p45_CO2priceTrajDeveloped(t)$(t.val gt 2005) = p45_CO2priceTrajDeveloped("2040")*( 1 + 0.1/3 * (t.val-2040)); !! no CO2 price in 2005 and only change CO2 prices after ; 
 *** annual increase by (10/3)% of the 2040 value is the same as a 10% increase of the 2020 value is the same as a linear increase from 0 in 2010 to the 2020/2040 value
 
 
 *** Then create regional phase-in:
-loop(ttot$((ttot.val ge cm_startyear) AND (ttot.val le cm_CO2priceRegConvEndYr) ),
-  p45_regCO2priceFactor(ttot,regi) = 
+loop(t$(t.val le cm_CO2priceRegConvEndYr),
+  p45_regCO2priceFactor(t,regi) = 
    min(1,
        max(0, 
 	        p45_phasein_2025ratio(regi) + (1 - p45_phasein_2025ratio(regi)) 
 			                               * Power( 
-										       ( (ttot.val - 2025) + (cm_CO2priceRegConvEndYr - 2025) * 0.1 ) 
-                                               / ( (cm_CO2priceRegConvEndYr - 2025) * 1.1 )
+										                          (max(0,t.val - 2025)) !! use max to avoid problems if t smaller than 2025, irrelevant if cm_startyear at least 2025
+                                               / (cm_CO2priceRegConvEndYr - 2025)
 											   , 2
-											 ) !! use Power instead of ** to allow ttot be smaller than 2025, and thus the base to be negative
+											 ) 
        )											 
    );
 );
-p45_regCO2priceFactor(ttot,regi)$(ttot.val ge cm_CO2priceRegConvEndYr) = 1;
+p45_regCO2priceFactor(t,regi)$(t.val ge cm_CO2priceRegConvEndYr) = 1;
 
 
 *** transition to global price - starting point depends on GDP/cap
