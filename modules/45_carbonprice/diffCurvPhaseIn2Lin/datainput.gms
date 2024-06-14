@@ -53,8 +53,6 @@ elseif cm_co2_tax_2020 ge 0,
 p45_CO2priceTrajDeveloped(ttot)$((ttot.val gt 2005) AND (ttot.val ge cm_startyear)) = p45_CO2priceTrajDeveloped("2040")*( 1 + 0.1/3 * (ttot.val-2040)); !! no CO2 price in 2005 and only change CO2 prices after ; 
 *** annual increase by (10/3)% of the 2040 value is the same as a 10% increase of the 2020 value is the same as a linear increase from 0 in 2010 to the 2020/2040 value
 
-*** Growth rate for catching up to the maximum carbon price 
-p45_grCatchUp(regi) = 1/p45_phasein_2025ratio(regi)^(1/(ttot.val - 2025));
 
 *** Then create regional phase-in:
 loop(ttot$((ttot.val ge cm_startyear) AND (ttot.val le cm_CO2priceRegConvEndYr) ),
