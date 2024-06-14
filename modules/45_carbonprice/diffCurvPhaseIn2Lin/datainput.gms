@@ -63,8 +63,8 @@ loop(ttot$((ttot.val ge cm_startyear) AND (ttot.val le cm_CO2priceRegConvEndYr) 
 			                               * Power( 
 										       ( (ttot.val - 2025) + (cm_CO2priceRegConvEndYr - 2025) * 0.1 ) 
                                                / ( (cm_CO2priceRegConvEndYr - 2025) * 1.1 )
-                                                                                          , 2
-                                                                                        ) !! use Power instead of ** to allow ttot be smaller than 2025, and thus the base to be negative
+											   , 2
+											 ) !! use Power instead of ** to allow ttot be smaller than 2025, and thus the base to be negative
        )											 
    );
 );
