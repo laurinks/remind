@@ -14,6 +14,7 @@
 p45_gdppcap2015_PPP(regi) = pm_gdp("2015",regi)/pm_shPPPMER(regi) / pm_pop("2015",regi);
 display p45_gdppcap2015_PPP;
 
+*** Selection of differentiation scheme via cm_co2_tax_spread
 if(cm_co2_tax_spread eq 1,
 p45_phasein_2025ratio(regi) = 1;
 );
