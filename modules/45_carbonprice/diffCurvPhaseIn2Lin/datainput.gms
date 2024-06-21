@@ -11,8 +11,8 @@
 
 
 *** convergence to global CO2 price depends on GDP per capita (in 1e3 $ PPP 2005).
-p45_gdppcap2022_PPP(regi) = pm_gdp("2022",regi)/pm_shPPPMER(regi) / pm_pop("2022",regi);
-display p45_gdppcap2022_PPP;
+p45_gdppcap2020_PPP(regi) = pm_gdp("2020",regi)/pm_shPPPMER(regi) / pm_pop("2020",regi);
+display p45_gdppcap2020_PPP;
 
 *** Selection of differentiation scheme via cm_co2_tax_spread
 if(cm_co2_tax_spread eq 1,
@@ -20,21 +20,21 @@ p45_phasein_2025ratio(regi) = 1;
 );
 
 if(cm_co2_tax_spread eq 10,
-p45_phasein_2025ratio(regi)$(p45_gdppcap2022_PPP(regi) le 3.5) = 0.1;
-p45_phasein_2025ratio(regi)$(p45_gdppcap2022_PPP(regi) gt 3.5 and p45_gdppcap2022_PPP(regi) le 5)  = 0.2;
-p45_phasein_2025ratio(regi)$(p45_gdppcap2022_PPP(regi) gt 5   and p45_gdppcap2022_PPP(regi) le 10) = 0.3;
-p45_phasein_2025ratio(regi)$(p45_gdppcap2022_PPP(regi) gt 10  and p45_gdppcap2022_PPP(regi) le 15) = 0.5;
-p45_phasein_2025ratio(regi)$(p45_gdppcap2022_PPP(regi) gt 15  and p45_gdppcap2022_PPP(regi) le 20) = 0.7;
-p45_phasein_2025ratio(regi)$(p45_gdppcap2022_PPP(regi) gt 20) = 1;
+p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) le 3.5) = 0.1;
+p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) gt 3.5 and p45_gdppcap2020_PPP(regi) le 5)  = 0.2;
+p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) gt 5   and p45_gdppcap2020_PPP(regi) le 10) = 0.3;
+p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) gt 10  and p45_gdppcap2020_PPP(regi) le 15) = 0.5;
+p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) gt 15  and p45_gdppcap2020_PPP(regi) le 20) = 0.7;
+p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) gt 20) = 1;
 );
 
 if(cm_co2_tax_spread eq 20,
-p45_phasein_2025ratio(regi)$(p45_gdppcap2022_PPP(regi) le 3.5) = 0.05;
-p45_phasein_2025ratio(regi)$(p45_gdppcap2022_PPP(regi) gt 3.5 and p45_gdppcap2022_PPP(regi) le 5)  = 0.1;
-p45_phasein_2025ratio(regi)$(p45_gdppcap2022_PPP(regi) gt 5   and p45_gdppcap2022_PPP(regi) le 10) = 0.2;
-p45_phasein_2025ratio(regi)$(p45_gdppcap2022_PPP(regi) gt 10  and p45_gdppcap2022_PPP(regi) le 15) = 0.4;
-p45_phasein_2025ratio(regi)$(p45_gdppcap2022_PPP(regi) gt 15  and p45_gdppcap2022_PPP(regi) le 20) = 0.6;
-p45_phasein_2025ratio(regi)$(p45_gdppcap2022_PPP(regi) gt 20) = 1;
+p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) le 3.5) = 0.05;
+p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) gt 3.5 and p45_gdppcap2020_PPP(regi) le 5)  = 0.1;
+p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) gt 5   and p45_gdppcap2020_PPP(regi) le 10) = 0.2;
+p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) gt 10  and p45_gdppcap2020_PPP(regi) le 15) = 0.4;
+p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) gt 15  and p45_gdppcap2020_PPP(regi) le 20) = 0.6;
+p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) gt 20) = 1;
 );
 display p45_phasein_2025ratio;
 
