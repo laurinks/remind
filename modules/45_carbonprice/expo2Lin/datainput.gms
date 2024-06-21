@@ -4,38 +4,24 @@
 *** |  AGPL-3.0, you are granted additional permissions described in the
 *** |  REMIND License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: remind@pik-potsdam.de
-*** SOF ./modules/45_carbonprice/diffCurvPhaseIn2Lin/datainput.gms
+*** SOF ./modules/45_carbonprice/expo2Lin/datainput.gms
 ***------------------------------------------------------------------------------------------------------------------------
-*** *BS* 20190930 linear convergence with starting points differentiated by GDP/capita, global price from 2040
+*** *LKS* 20190930 exponential increase until peak year, increase with ... from peak year
 ***-----------------------------------------------------------------------------------------------------------------------
 
 
 *** convergence to global CO2 price depends on GDP per capita (in 1e3 $ PPP 2005).
-p45_gdppcap2022_PPP(regi) = pm_gdp("2022",regi)/pm_shPPPMER(regi) / pm_pop("2022",regi);
-display p45_gdppcap2022_PPP;
+p45_gdppcap2015_PPP(regi) = pm_gdp("2015",regi)/pm_shPPPMER(regi) / pm_pop("2015",regi);
+display p45_gdppcap2015_PPP;
 
-*** Selection of differentiation scheme via cm_co2_tax_spread
-if(cm_co2_tax_spread eq 1,
-p45_phasein_2025ratio(regi) = 1;
-);
-
-if(cm_co2_tax_spread eq 10,
-p45_phasein_2025ratio(regi)$(p45_gdppcap2022_PPP(regi) le 3.5) = 0.1;
-p45_phasein_2025ratio(regi)$(p45_gdppcap2022_PPP(regi) gt 3.5 and p45_gdppcap2022_PPP(regi) le 5)  = 0.2;
-p45_phasein_2025ratio(regi)$(p45_gdppcap2022_PPP(regi) gt 5   and p45_gdppcap2022_PPP(regi) le 10) = 0.3;
-p45_phasein_2025ratio(regi)$(p45_gdppcap2022_PPP(regi) gt 10  and p45_gdppcap2022_PPP(regi) le 15) = 0.5;
-p45_phasein_2025ratio(regi)$(p45_gdppcap2022_PPP(regi) gt 15  and p45_gdppcap2022_PPP(regi) le 20) = 0.7;
-p45_phasein_2025ratio(regi)$(p45_gdppcap2022_PPP(regi) gt 20) = 1;
-);
-
-if(cm_co2_tax_spread eq 20,
-p45_phasein_2025ratio(regi)$(p45_gdppcap2022_PPP(regi) le 3.5) = 0.05;
-p45_phasein_2025ratio(regi)$(p45_gdppcap2022_PPP(regi) gt 3.5 and p45_gdppcap2022_PPP(regi) le 5)  = 0.1;
-p45_phasein_2025ratio(regi)$(p45_gdppcap2022_PPP(regi) gt 5   and p45_gdppcap2022_PPP(regi) le 10) = 0.2;
-p45_phasein_2025ratio(regi)$(p45_gdppcap2022_PPP(regi) gt 10  and p45_gdppcap2022_PPP(regi) le 15) = 0.4;
-p45_phasein_2025ratio(regi)$(p45_gdppcap2022_PPP(regi) gt 15  and p45_gdppcap2022_PPP(regi) le 20) = 0.6;
-p45_phasein_2025ratio(regi)$(p45_gdppcap2022_PPP(regi) gt 20) = 1;
-);
+p45_phasein_2025ratio(regi)$(p45_gdppcap2015_PPP(regi) le 3) = 0.1;
+p45_phasein_2025ratio(regi)$(p45_gdppcap2015_PPP(regi) gt 3 and p45_gdppcap2015_PPP(regi) le 5) = 0.2;
+p45_phasein_2025ratio(regi)$(p45_gdppcap2015_PPP(regi) gt 5 and p45_gdppcap2015_PPP(regi) le 8) = 0.3;
+p45_phasein_2025ratio(regi)$(p45_gdppcap2015_PPP(regi) gt 8 and p45_gdppcap2015_PPP(regi) le 11) = 0.5;
+p45_phasein_2025ratio(regi)$(p45_gdppcap2015_PPP(regi) gt 11 and p45_gdppcap2015_PPP(regi) le 14) = 0.65;
+p45_phasein_2025ratio(regi)$(p45_gdppcap2015_PPP(regi) gt 14 and p45_gdppcap2015_PPP(regi) le 19) = 0.8;
+p45_phasein_2025ratio(regi)$(p45_gdppcap2015_PPP(regi) gt 19 and p45_gdppcap2015_PPP(regi) le 24) = 0.9;
+p45_phasein_2025ratio(regi)$(p45_gdppcap2015_PPP(regi) gt 24) = 1;
 display p45_phasein_2025ratio;
 
 
