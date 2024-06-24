@@ -5,9 +5,9 @@
 *** |  REMIND License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: remind@pik-potsdam.de
 *** SOF ./modules/45_carbonprice/diffCurvPhaseIn2Lin/datainput.gms
-***------------------------------------------------------------------------------------------------------------------------
-*** *BS* 20190930 linear convergence with starting points differentiated by GDP/capita, global price from 2040
-***-----------------------------------------------------------------------------------------------------------------------
+***-----------------------------------------------------------------------------------------------------------------------------------------------
+*** *BS* 20190930 linear convergence with starting points differentiated by GDP/capita, global price from cm_CO2priceRegConvEndYr (default = 2050)
+***-----------------------------------------------------------------------------------------------------------------------------------------------
 
 
 *** convergence to global CO2 price depends on GDP per capita (in 1e3 $ PPP 2005).
@@ -56,17 +56,15 @@ p45_CO2priceTrajDeveloped(t)$(t.val gt 2005) = p45_CO2priceTrajDeveloped("2040")
 
 
 *** Then create regional phase-in:
-loop(t$(t.val le cm_CO2priceRegConvEndYr),
+*** Set regional CO2 price factor equal to p45_phasein_2025ratio until 2025:
+p45_regCO2priceFactor(t,regi)$(t.val le 2025) = p45_phasein_2025ratio(regi);
+*** Then define quadratic phase-in until cm_CO2priceRegConvEndYr:
+loop(t$((t.val gt 2025) and (t.val le cm_CO2priceRegConvEndYr)),
   p45_regCO2priceFactor(t,regi) = 
    min(1,
        max(0, 
-	        p45_phasein_2025ratio(regi) + (1 - p45_phasein_2025ratio(regi)) 
-			                               * Power( 
-										                          (max(0,t.val - 2025)) !! use max to avoid problems if t smaller than 2025, irrelevant if cm_startyear at least 2025
-                                               / (cm_CO2priceRegConvEndYr - 2025)
-											   , 2
-											 ) 
-       )											 
+	        p45_phasein_2025ratio(regi) + (1 - p45_phasein_2025ratio(regi)) * Power( (t.val - 2025) / (cm_CO2priceRegConvEndYr - 2025), 2) 
+       )				 
    );
 );
 p45_regCO2priceFactor(t,regi)$(t.val ge cm_CO2priceRegConvEndYr) = 1;

@@ -978,11 +978,17 @@ parameter
 *'
 parameter
   cm_CO2priceRegConvEndYr      "Year at which regional CO2 taxes converge in module 45 realization diffCurvPhaseIn2Lin"
-  cm_co2_tax_spread            "spread of carbon prices in cm_startyear given as a factor"
 ;
-  cm_CO2priceRegConvEndYr  = 2050;   !! def = 2050
-  cm_co2_tax_spread        = 10;     !! def 10    
+  cm_CO2priceRegConvEndYr  = 2050;   !! def = 2050    
 *'
+parameter
+  cm_co2_tax_spread            "spread of carbon prices in 2025 given as a factor"
+;
+  cm_co2_tax_spread        = 10;     !! def = 10  !! regexp = 1|10|20
+*'  Initial spread of carbon prices (in 2025) between the regions with highest respectively lowest GDP per capita (PPP) in last historical timestep (2020)
+*' * (1) Uniform carbon pricing, i.e. no differentiation
+*' * (10) Spread of carbon prices in 2025 is equal to 10
+*' * (10) Spread of carbon prices in 2025 is equal to 20
 parameter
   c_teNoLearngConvEndYr      "Year at which regional costs of non-learning technologies converge"
 ;
