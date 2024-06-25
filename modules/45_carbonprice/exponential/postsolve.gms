@@ -4,11 +4,12 @@
 *** |  AGPL-3.0, you are granted additional permissions described in the
 *** |  REMIND License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: remind@pik-potsdam.de
-*** SOF ./modules/45_carbonprice/diffCurvPhaseIn2Lin/postsolve.gms
-***------------------------------------------------------------------------------------------------------
-*** regional prices are initially differentiated by GDP/capita and converge using quadratic phase-in, 
+*** SOF ./modules/45_carbonprice/exponential/postsolve.gms
+***----------------------------------------------------------------------------------------------------------------------------------------
+*** CO2 tax level is calculated at an exponential increase with rate given by cm_co2_tax_growth from the 2020 tax level exogenously defined
+*** regional prices can be initially differentiated by GDP/capita and converge using quadratic phase-in, 
 *** global price from cm_CO2priceRegConvEndYr (default = 2050)
-***------------------------------------------------------------------------------------------------------
+***----------------------------------------------------------------------------------------------------------------------------------------
 
 *** re-create the regional differentation, use path from developed countries as the basis.
 *** This doesn't need to be a loop, but it will be correct for any cycle of the loop, so also for the last cycle.
@@ -20,4 +21,4 @@ loop(regi$(p45_gdppcap2020_PPP(regi) gt 30),
 pm_taxCO2eq(t,regi) = p45_regCO2priceFactor(t,regi) * p45_CO2priceTrajDeveloped(t);
 
 display pm_taxCO2eq;
-*** EOF ./modules/45_carbonprice/diffCurvPhaseIn2Lin/postsolve.gms
+*** EOF ./modules/45_carbonprice/exponential/postsolve.gms

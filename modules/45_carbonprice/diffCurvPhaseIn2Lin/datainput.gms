@@ -21,21 +21,23 @@ p45_phasein_2025ratio(regi) = 1;
 );
 
 if(cm_co2_tax_spread eq 10,
-p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) le 3.5) = 0.1;
-p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) gt 3.5 and p45_gdppcap2020_PPP(regi) le 5)  = 0.2;
-p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) gt 5   and p45_gdppcap2020_PPP(regi) le 10) = 0.3;
-p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) gt 10  and p45_gdppcap2020_PPP(regi) le 15) = 0.5;
-p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) gt 15  and p45_gdppcap2020_PPP(regi) le 20) = 0.7;
-p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) gt 20) = 1;
+p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) le 3.5) = 0.1; !! SSA
+p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) gt 3.5 and p45_gdppcap2020_PPP(regi) le 7)  = 0.2; !! IND
+p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) gt 7   and p45_gdppcap2020_PPP(regi) le 10) = 0.3; !! OAS
+p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) gt 10  and p45_gdppcap2020_PPP(regi) le 15) = 0.5; !! CHA, MEA, LAM
+p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) gt 15  and p45_gdppcap2020_PPP(regi) le 20) = 0.6; !! REF
+p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) gt 20  and p45_gdppcap2020_PPP(regi) le 30) = 0.8; !! NEU
+p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) gt 30) = 1; !! EUR, JPN, USA, CAZ
 );
 
 if(cm_co2_tax_spread eq 20,
-p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) le 3.5) = 0.05;
-p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) gt 3.5 and p45_gdppcap2020_PPP(regi) le 5)  = 0.1;
-p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) gt 5   and p45_gdppcap2020_PPP(regi) le 10) = 0.2;
-p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) gt 10  and p45_gdppcap2020_PPP(regi) le 15) = 0.4;
-p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) gt 15  and p45_gdppcap2020_PPP(regi) le 20) = 0.6;
-p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) gt 20) = 1;
+p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) le 3.5) = 0.05; !! SSA
+p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) gt 3.5 and p45_gdppcap2020_PPP(regi) le 7)  = 0.1; !! IND
+p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) gt 7   and p45_gdppcap2020_PPP(regi) le 10) = 0.2; !! OAS
+p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) gt 10  and p45_gdppcap2020_PPP(regi) le 15) = 0.4; !! CHA, MEA, LAM
+p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) gt 15  and p45_gdppcap2020_PPP(regi) le 20) = 0.5; !! REF
+p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) gt 20  and p45_gdppcap2020_PPP(regi) le 30) = 0.8; !! NEU
+p45_phasein_2025ratio(regi)$(p45_gdppcap2020_PPP(regi) gt 30) = 1; !! EUR, JPN, USA, CAZ
 );
 display p45_phasein_2025ratio;
 
