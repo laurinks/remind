@@ -78,5 +78,4 @@ pm_taxCO2eq(t,regi) = p45_regCO2priceFactor(t,regi) * p45_CO2priceTrajDeveloped(
 
 
 display p45_regCO2priceFactor, p45_CO2priceTrajDeveloped, pm_taxCO2eq;
-
 *** EOF ./modules/45_carbonprice/diffCurvPhaseIn2Lin/datainput.gms

@@ -11,5 +11,6 @@
 *####################### R SECTION START (PHASES) ##############################
 $Ifi "%phase%" == "declarations" $include "./modules/45_carbonprice/exponential/declarations.gms"
 $Ifi "%phase%" == "datainput" $include "./modules/45_carbonprice/exponential/datainput.gms"
+$Ifi "%phase%" == "postsolve" $include "./modules/45_carbonprice/exponential/postsolve.gms"
 *######################## R SECTION END (PHASES) ###############################
 *** EOF ./modules/45_carbonprice/exponential/realization.gms

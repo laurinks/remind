@@ -372,8 +372,8 @@ $setglobal emicapregi  none           !! def = none
 *' This module defines the carbon price pm_taxCO2eq, with behaviour across regions governed by similar principles (e.g. global targets, or all following NDC or NPi policies).
 *'
 *' * (none): no tax policy (combined with all emiscens except emiscen = 9)
-*' * (exponential): 5% exponential increase over time of the tax level in 2020 set via cm_co2_tax_2020 (combined with emiscen = 9 and cm_co2_tax_2020>0)
-*' * (expoLinear): 5% exponential increase until c_expoLinear_yearStart, linear increase thereafter
+*' * (exponential): 4.5% exponential increase over time of the tax level in 2020 set via cm_co2_tax_2020 (combined with emiscen = 9 and cm_co2_tax_2020>0)
+*' * (expoLinear): 4.5% exponential increase until c_expoLinear_yearStart, linear increase thereafter
 *' * (exogenous): carbon price is specified using an external input file or using the switch cm_regiExoPrice
 *' * (linear): linear increase over time of the tax level in 2020 set via cm_co2_tax_2020 (combined with emiscen = 9 and cm_co2_tax_2020>0)
 *' * (temperatureNotToExceed): [test and verify before using it!] Find the optimal carbon carbon tax (set cm_emiscen = 1, iterative_target_adj = 9] curved convergence of CO2 prices between regions until cm_CO2priceRegConvEndYr; developed countries have linear path from 0 in 2010 through cm_co2_tax_2020 in 2020;
@@ -508,8 +508,8 @@ parameter
 parameter
   cm_co2_tax_growth         "growth rate of carbon tax"
 ;
-  cm_co2_tax_growth = 1.05;            !! def = 1.05  !! regexp = is.numeric
-*'  (any number >= 0): rate of exponential increase over time
+  cm_co2_tax_growth = 1.045;            !! def = 1.045  !! regexp = is.numeric
+*'  (any number >= 0): rate of exponential increase over time, default value chosen to be consistent with interest rate
 parameter
   c_macscen                 "scenario switch on whether or not to use MAC (Marginal Abatement Cost) for certain sectors not related to direct combustion of fossil fuel, e.g. fugitive emissions from old mines, forestry, agriculture and cement"
 ;
