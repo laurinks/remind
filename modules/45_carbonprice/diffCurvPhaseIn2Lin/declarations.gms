@@ -5,9 +5,10 @@
 *** |  REMIND License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: remind@pik-potsdam.de
 *** SOF ./modules/45_carbonprice/diffCurvPhaseIn2Lin/declarations.gms
-***------------------------------------------------------------------------------------------------------------------------
-*** *BS* 20190930 linear convergence with starting points differentiated by GDP/capita, global price from 2040
-***-----------------------------------------------------------------------------------------------------------------------
+***------------------------------------------------------------------------------------------------------
+*** regional prices are initially differentiated by GDP/capita and converge using quadratic phase-in, 
+*** global price from cm_CO2priceRegConvEndYr (default = 2050)
+***------------------------------------------------------------------------------------------------------
 
 parameters
 p45_tauCO2_ref(ttot, all_regi)              "CO2 tax path of reference policy (NDC)"

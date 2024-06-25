@@ -5,9 +5,10 @@
 *** |  REMIND License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: remind@pik-potsdam.de
 *** SOF ./modules/45_carbonprice/diffCurvPhaseIn2Lin/datainput.gms
-***-----------------------------------------------------------------------------------------------------------------------------------------------
-*** *BS* 20190930 linear convergence with starting points differentiated by GDP/capita, global price from cm_CO2priceRegConvEndYr (default = 2050)
-***-----------------------------------------------------------------------------------------------------------------------------------------------
+***------------------------------------------------------------------------------------------------------
+*** regional prices are initially differentiated by GDP/capita and converge using quadratic phase-in, 
+*** global price from cm_CO2priceRegConvEndYr (default = 2050)
+***------------------------------------------------------------------------------------------------------
 
 
 *** convergence to global CO2 price depends on GDP per capita (in 1e3 $ PPP 2005).
@@ -40,7 +41,7 @@ display p45_phasein_2025ratio;
 
 
 *** for the current implementation, use the following trajectory for rich countries:
-*** global price is linear from 2010 until the pkBudgYr, then increases with c_taxCO2inc_after_peakBudgYr
+*** price increases linearly from 0 in 2010 until the pkBudgYr, then increases with c_taxCO2inc_after_peakBudgYr
 if(cm_co2_tax_2020 lt 0,
   abort "please choose a valid cm_co2_tax_2020"
 elseif cm_co2_tax_2020 ge 0,

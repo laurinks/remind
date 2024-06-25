@@ -5,9 +5,10 @@
 *** |  REMIND License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: remind@pik-potsdam.de
 *** SOF ./modules/45_carbonprice/diffCurvPhaseIn2Lin/postsolve.gms
-***------------------------------------------------------------------------------------------------------------------------
-*** *BS* 20190930 linear convergence with starting points differentiated by GDP/capita, global price from 2040
-***-----------------------------------------------------------------------------------------------------------------------
+***------------------------------------------------------------------------------------------------------
+*** regional prices are initially differentiated by GDP/capita and converge using quadratic phase-in, 
+*** global price from cm_CO2priceRegConvEndYr (default = 2050)
+***------------------------------------------------------------------------------------------------------
 
 ***   *** updated constant global price as scalar (regional prices are the same anyway)
 ***   s45_constantCO2price = sum((ttot,regi)$(ttot.val eq s45_stageend), pm_taxCO2eq(ttot,regi))/card(regi) ;
@@ -25,7 +26,7 @@ loop(regi$(p45_gdppcap2020_PPP(regi) gt 30),
   p45_CO2priceTrajDeveloped(t) = pm_taxCO2eq(t,regi);
 );
 
-*** linear transition to global price - starting point depends on GDP/cap
+*** quadratic transition to global price - starting point depends on GDP/cap
 pm_taxCO2eq(t,regi) = p45_regCO2priceFactor(t,regi) * p45_CO2priceTrajDeveloped(t);
 
 display pm_taxCO2eq;
