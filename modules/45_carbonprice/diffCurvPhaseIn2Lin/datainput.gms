@@ -43,19 +43,19 @@ display p45_phasein_2025ratio;
 
 
 *** for the current implementation, use the following trajectory for rich countries:
-*** price increases linearly from 0 in 2010 until the pkBudgYr, then increases with c_taxCO2inc_after_peakBudgYr
+*** price increases linearly from 0 in 2020 (warning: quick fix for more near-term realism. To be changed to NPI fixing) until the pkBudgYr, then increases with c_taxCO2inc_after_peakBudgYr
 if(cm_co2_tax_2020 lt 0,
   abort "please choose a valid cm_co2_tax_2020"
 elseif cm_co2_tax_2020 ge 0,
 *** convert tax value from $/t CO2eq to T$/GtC
   p45_CO2priceTrajDeveloped("2040")= 3 * cm_co2_tax_2020 * sm_DptCO2_2_TDpGtC;  !! shifted to 2040 to make sure that even in delay scenarios the fixpoint of the linear price path is inside the "t" range, otherwise the CO2 prices from reference run may be overwritten
-*** The factor 3 comes from shifting the 2020 value 20 years into the future at linear increase of 10% of 2020 value per year.
+*** The factor 3 is inherited from old fixing to 0 in 2010. Switch cm_co2_tax_2020 should be renamed or removed.
 );
 
 
 
-p45_CO2priceTrajDeveloped(t)$(t.val gt 2005) = p45_CO2priceTrajDeveloped("2040")*( 1 + 0.1/3 * (t.val-2040)); !! no CO2 price in 2005 and only change CO2 prices after ; 
-*** annual increase by (10/3)% of the 2040 value is the same as a 10% increase of the 2020 value is the same as a linear increase from 0 in 2010 to the 2020/2040 value
+p45_CO2priceTrajDeveloped(t)$(t.val ge 2020) = p45_CO2priceTrajDeveloped("2040")*( 1 + (t.val-2040) / 20); !! no CO2 price until 2020 and only change CO2 prices after ; 
+*** annual increase by 5% (=1/20) of the 2040 value corresponds to a linear increase from 0 in 2020 to the 2040 value
 
 
 *** Then create regional phase-in:
