@@ -4,7 +4,7 @@
 *** |  AGPL-3.0, you are granted additional permissions described in the
 *** |  REMIND License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: remind@pik-potsdam.de
-*** SOF ./modules/45_carbonprice/exponential/datainput.gms
+*** SOF ./modules/45_carbonprice/diffCurvPhaseIn2Exp/datainput.gms
 ***----------------------------------------------------------------------------------------------------------------------------------------
 *** CO2 tax level is calculated at an exponential increase with rate given by cm_co2_tax_growth from the 2020 tax level exogenously defined
 *** regional prices can be initially differentiated by GDP/capita and converge using quadratic phase-in, 
@@ -20,4 +20,4 @@ p45_CO2priceTrajDeveloped(ttot)                         "CO2 price trajectory fo
 ;
 
 
-*** EOF ./modules/45_carbonprice/exponential/declarations.gms
+*** EOF ./modules/45_carbonprice/diffCurvPhaseIn2Exp/declarations.gms

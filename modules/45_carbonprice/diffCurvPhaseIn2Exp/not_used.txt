@@ -20,10 +20,6 @@ pm_GDPGross,input,questionnaire
 pm_prtp,input,questionnaire
 cm_carbonprice_temperatureLimit,input,questionnaire
 pm_ttot_2_tall,input,questionnaire
-pm_shPPPMER,input,questionnaire
-pm_pop,input,questionnaire
-pm_gdp,input,questionnaire
-cm_CO2priceRegConvEndYr,input,questionnaire
 cm_NDC_divergentScenario,input,questionnaire
 vm_demFeSector,input,questionnaire
 pm_emifac,input,questionnaire
