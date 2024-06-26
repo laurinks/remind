@@ -988,7 +988,7 @@ parameter
 *'  Initial spread of carbon prices (in 2025) between the regions with highest respectively lowest GDP per capita (PPP) in last historical timestep (2020)
 *' * (1) Uniform carbon pricing, i.e. no differentiation
 *' * (10) Spread of carbon prices in 2025 is equal to 10
-*' * (10) Spread of carbon prices in 2025 is equal to 20
+*' * (20) Spread of carbon prices in 2025 is equal to 20
 parameter
   c_teNoLearngConvEndYr      "Year at which regional costs of non-learning technologies converge"
 ;
