@@ -13,7 +13,7 @@
 
 *** re-create the regional differentation, use path from developed countries as the basis.
 *** This doesn't need to be a loop, but it will be correct for any cycle of the loop, so also for the last cycle.
-loop(regi$(p45_gdppcap2020_PPP(regi) gt 30),
+loop(regi$(p45_gdppcap2015_PPP(regi) gt 20),
   p45_CO2priceTrajDeveloped(t) = pm_taxCO2eq(t,regi);
 );
 

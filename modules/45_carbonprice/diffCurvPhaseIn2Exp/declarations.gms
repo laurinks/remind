@@ -12,7 +12,7 @@
 ***----------------------------------------------------------------------------------------------------------------------------------------
 
 parameters
-p45_gdppcap2020_PPP(all_regi)               "2020 GDP per capita (k $ PPP 2005)"
+p45_gdppcap2015_PPP(all_regi)               "2015 GDP per capita (k $ PPP 2005)"
 p45_phasein_2025ratio(all_regi)             "ratio of CO2 price to that of developed region in 2025"
 
 p45_regCO2priceFactor(ttot,all_regi)                    "regional multiplicative factor to the CO2 price of the developed countries"
