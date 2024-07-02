@@ -5,10 +5,12 @@
 *** |  REMIND License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: remind@pik-potsdam.de
 *** SOF ./modules/45_carbonprice/diffCurvPhaseIn2Lin/datainput.gms
-***------------------------------------------------------------------------------------------------------
+***----------------------------------------------------------------------------------------------------------------------------------------------------
 *** regional prices are initially differentiated by GDP/capita and converge using quadratic phase-in, 
 *** global price from cm_CO2priceRegConvEndYr (default = 2050)
-***------------------------------------------------------------------------------------------------------
+*** carbon price of developed regions increases linearly until peak year (with iterative_target_adj = 9) or until 2100 (with iterative_target_adj = 5)
+*** linear carbon price curve of developed regions starts at 0 in 2020 
+***----------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 *** convergence to global CO2 price depends on GDP per capita (in 1e3 $ PPP 2005).
