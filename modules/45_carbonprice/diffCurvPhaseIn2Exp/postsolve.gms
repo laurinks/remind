@@ -5,11 +5,12 @@
 *** |  REMIND License Exception, version 1.0 (see LICENSE file).
 *** |  Contact: remind@pik-potsdam.de
 *** SOF ./modules/45_carbonprice/diffCurvPhaseIn2Exp/postsolve.gms
-***----------------------------------------------------------------------------------------------------------------------------------------
-*** CO2 tax level is calculated at an exponential increase with rate given by cm_co2_tax_growth from the 2020 tax level exogenously defined
-*** regional prices can be initially differentiated by GDP/capita and converge using quadratic phase-in, 
+***---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*** regional prices are initially differentiated by GDP/capita and converge using quadratic phase-in, 
 *** global price from cm_CO2priceRegConvEndYr (default = 2050)
-***----------------------------------------------------------------------------------------------------------------------------------------
+*** carbon price of developed regions increases exponentially with rate given by cm_co2_tax_growth until peak year (with iterative_target_adj = 9) or until 2100 (with iterative_target_adj = 5)
+*** linear carbon price curve of developed regions starts at 0 in 2020 
+***---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 *** re-create the regional differentation, use path from developed countries as the basis.
 *** This doesn't need to be a loop, but it will be correct for any cycle of the loop, so also for the last cycle.
