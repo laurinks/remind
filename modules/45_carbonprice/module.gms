@@ -25,6 +25,7 @@ $Ifi "%carbonprice%" == "NDC" $include "./modules/45_carbonprice/NDC/realization
 $Ifi "%carbonprice%" == "NPi" $include "./modules/45_carbonprice/NPi/realization.gms"
 $Ifi "%carbonprice%" == "diffCurvPhaseIn2Exp" $include "./modules/45_carbonprice/diffCurvPhaseIn2Exp/realization.gms"
 $Ifi "%carbonprice%" == "diffCurvPhaseIn2Lin" $include "./modules/45_carbonprice/diffCurvPhaseIn2Lin/realization.gms"
+$Ifi "%carbonprice%" == "exo_diffCurvPhaseIn2Lin" $include "./modules/45_carbonprice/exo_diffCurvPhaseIn2Lin/realization.gms"
 $Ifi "%carbonprice%" == "exogenous" $include "./modules/45_carbonprice/exogenous/realization.gms"
 $Ifi "%carbonprice%" == "expoLinear" $include "./modules/45_carbonprice/expoLinear/realization.gms"
 $Ifi "%carbonprice%" == "exponential" $include "./modules/45_carbonprice/exponential/realization.gms"
