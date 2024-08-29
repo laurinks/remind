@@ -22,3 +22,11 @@ SMIPv03-VL-SDP_MC-PkPrice250-var03_NoDietChange;0;;;;SDP-MC|nodiet|NDC|nocc_hist
 SMIPv03-VL-SDP_MC-PkPrice250-var04_NoCCS;0;;;;SDP-MC|NDC|nocc_hist;y2030;raw;;;
 SMIPv03-VL-SDP_MC-PkPrice250-var05_maxProdBiolc70EJ;0;;;;SDP-MC|NDC|nocc_hist;y2030;raw;;;
 SMIPv03-LOS-SSP2-EcBudg400-var01_OAEon;0;;;;SSP2|NPI|nocc_hist;y2035;raw;;;
+SMIPv03-ML-SSP2-PkPrice53-var01;1;;;;SSP2|NPI|nocc_hist;y2035;raw;;;
+SMIPv03-ML-SSP2-PkPrice67-var02;1;;;;SSP2|NPI|nocc_hist;y2035;raw;;;
+SMIPv03-ML-SSP2-PkPrice81-var03;1;;;;SSP2|NPI|nocc_hist;y2035;raw;;;
+SMIPv03-ML-SSP2-PkPrice95-var04;1;;;;SSP2|NPI|nocc_hist;y2035;raw;;;
+SMIPv03-ML-SSP2-PkPrice109-var05;1;;;;SSP2|NPI|nocc_hist;y2035;raw;;;
+SMIPv03-ML-SSP2-PkPrice123-var06;1;;;;SSP2|NPI|nocc_hist;y2035;raw;;;
+SMIPv03-ML-SSP2-PkPrice137-var07;1;;;;SSP2|NPI|nocc_hist;y2035;raw;;;
+SMIPv03-ML-SSP2-PkPrice151-var08;1;;;;SSP2|NPI|nocc_hist;y2035;raw;;;
