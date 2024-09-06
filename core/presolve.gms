@@ -159,6 +159,9 @@ pm_priceCO2forMAC(ttot,regi,MacSectorMagpie) = pm_priceCO2forMAC(ttot,regi,MacSe
 pm_priceCO2forMAC(ttot,regi,emiMacMagpieN2O) = pm_priceCO2forMAC(ttot,regi,emiMacMagpieN2O) * (298/s_gwpN2O);
 pm_priceCO2forMAC(ttot,regi,emiMacMagpieCH4) = pm_priceCO2forMAC(ttot,regi,emiMacMagpieCH4) * (25/s_gwpCH4);
 
+*** GA: Quickfix, remove CH4 and N2O pricing in 2020 to better match historical values
+pm_priceCO2forMAC(ttot,regi,MacSector)$(ttot.val le 2020) = 0;
+
 display p_priceCO2,pm_priceCO2forMAC;
 ***--------------------------------------
 *** MAC baselines
