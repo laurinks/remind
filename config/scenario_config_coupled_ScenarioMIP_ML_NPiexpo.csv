@@ -1,0 +1,11 @@
+title;start;oldrun;path_report;qos;magpie_scen;no_ghgprices_land_until;var_luc;path_gdx;path_gdx_bau;path_gdx_ref
+SMIPv03-ML-SSP2-NPiexpo1_from_ELEVATE;0;;;;SSP2|NDC|nocc_hist|rcp4p5;y2150;raw;;;
+SMIPv03-ML-SSP2-NPiexpo2_from_ELEVATE;0;;;;SSP2|NDC|nocc_hist|rcp4p5;y2150;raw;;;
+SMIPv03-ML-SSP2-NPiexpo3_from_ELEVATE;0;;;;SSP2|NDC|nocc_hist|rcp4p5;y2150;raw;;;
+SMIPv03-ML-SSP2-NPiexpo4_from_ELEVATE;0;;;;SSP2|NDC|nocc_hist|rcp4p5;y2150;raw;;;
+SMIPv03-ML-SSP2-NPiexpo5_from_ELEVATE;0;;;;SSP2|NDC|nocc_hist|rcp4p5;y2150;raw;;;
+SMIPv03-ML-SSP2-NPiexpo1_from_SMIP_M;0;;;;SSP2|NDC|nocc_hist;y2150;raw;;;
+SMIPv03-ML-SSP2-NPiexpo2_from_SMIP_M;0;;;;SSP2|NDC|nocc_hist;y2150;raw;;;
+SMIPv03-ML-SSP2-NPiexpo3_from_SMIP_M;0;;;;SSP2|NDC|nocc_hist;y2150;raw;;;
+SMIPv03-ML-SSP2-NPiexpo4_from_SMIP_M;0;;;;SSP2|NDC|nocc_hist;y2150;raw;;;
+SMIPv03-ML-SSP2-NPiexpo5_from_SMIP_M;1;;;;SSP2|NDC|nocc_hist;y2150;raw;;;
