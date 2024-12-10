@@ -33,3 +33,16 @@ SMIPv04-ML-SSP2-PkBudg1500-var_raw_luc;0;SMIPv04-ML-SSP2-PkBudg1500-def;;;;;;raw
 SMIPv04-L-SSP2-PkBudg1000-var_raw_luc;0;SMIPv04-L-SSP2-PkBudg1000-def;;;;;;raw;;;;;;;
 SMIPv04-VLHO-SSP2-EcBudg400-var_raw_luc;0;SMIPv04-VLHO-SSP2-EcBudg400-def;;;;;;raw;;;;;;;
 SMIPv04-VLLO-SSP1-PkBudg650-var_raw_luc;0;SMIPv04-VLLO-SSP1-PkBudg650-def;;;;;;raw;;;;;;;
+SMIPv04-VLLO-SSP1-PkPrice200-var;0;SMIPv04-VLLO-SSP1-PkBudg650-def;;;;;;;;;;;;;
+SMIPv04-VLLO-SSP1-PkPrice250-var;0;SMIPv04-VLLO-SSP1-PkBudg650-def;;;;;;;;;;;;;
+SMIPv04-VLLO-SSP1-PkPrice300-var;0;SMIPv04-VLLO-SSP1-PkBudg650-def;;;;;;;;;;;;;
+SMIPv04-VLLO-SSP1-PkPrice400-var;0;SMIPv04-VLLO-SSP1-PkBudg650-def;;;;;;;;;;;;;
+SMIPv04-VLLO-SSP1-PkPrice500-var;0;SMIPv04-VLLO-SSP1-PkBudg650-def;;;;;;;;;;;;;
+SMIPv04-VLLO-SSP2-PkPrice200-var;0;SMIPv04-VLLO-SSP2-PkBudg650-var;;;;;;;;;;;;;
+SMIPv04-VLLO-SSP2-PkPrice250-var;0;SMIPv04-VLLO-SSP2-PkBudg650-var;;;;;;;;;;;;;
+SMIPv04-VLLO-SSP2-PkPrice300-var;0;SMIPv04-VLLO-SSP2-PkBudg650-var;;;;;;;;;;;;;
+SMIPv04-VLLO-SSP2-PkPrice400-var;0;SMIPv04-VLLO-SSP2-PkBudg650-var;;;;;;;;;;;;;
+SMIPv04-VLLO-SSP2-PkPrice500-var;0;SMIPv04-VLLO-SSP2-PkBudg650-var;;;;;;;;;;;;;
+SMIPv04-VLHO-SSP2-EcPrice1000-var;0;SMIPv04-VLHO-SSP2-EcBudg400-def;;;;;;;;;;;;;
+SMIPv04-VLHO-SSP2-EcPrice1500-var;0;SMIPv04-VLHO-SSP2-EcBudg400-def;;;;;;;;;;;;;
+SMIPv04-VLHO-SSP2-EcPrice2000-var;0;SMIPv04-VLHO-SSP2-EcBudg400-def;;;;;;;;;;;;;
