@@ -44,8 +44,8 @@ SMIPv04-VLLO-SSP1-PkBudg650-var_increasedCCSlimit;1;SMIPv04-VLLO-SSP1-PkBudg650-
 SMIPv04-VLLO-SSP2-PkBudg650-var_increasedCCSlimit;1;SMIPv04-VLLO-SSP2-PkBudg650-var;;;;;;;;;;;;;;;;;;;;;;2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 SMIPv04-VLLO-SSP1-PkBudg650-var_highCO2price;1;SMIPv04-VLLO-SSP1-PkBudg650-def;;;;;;;;;;;;;;;5;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 SMIPv04-VLLO-SSP2-PkBudg650-var_highCO2price;1;SMIPv04-VLLO-SSP2-PkBudg650-var;;;;;;;;;;;;;;;5;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-SMIPv04-VLLO-SSP1-PkBudg650-var_increasedCCSlimit_highCO2price;1;SMIPv04-VLLO-SSP1-PkBudg650-def;;;;;;;;;;;;;;;5;;;;;;;2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-SMIPv04-VLLO-SSP2-PkBudg650-var_increasedCCSlimit_highCO2price;1;SMIPv04-VLLO-SSP2-PkBudg650-var;;;;;;;;;;;;;;;5;;;;;;;2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+SMIPv04-VLLO-SSP1-PkBudg650-var_incCCS_hCO2price;1;SMIPv04-VLLO-SSP1-PkBudg650-def;;;;;;;;;;;;;;;5;;;;;;;2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+SMIPv04-VLLO-SSP2-PkBudg650-var_incCCS_hCO2price;1;SMIPv04-VLLO-SSP2-PkBudg650-var;;;;;;;;;;;;;;;5;;;;;;;2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #___ScenarioMIP_raw_luc_variant___;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 SMIPv04-H-SSP3-rollBack-var_raw_luc;1;SMIPv04-H-SSP3-rollBack-def;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;SMIPv04-M-SSP2-NPi2025-var_raw_luc;;SMIPv04-M-SSP2-NPi2025-var_raw_luc;
 SMIPv04-M-SSP2-NPi2025-var_raw_luc;1;SMIPv04-M-SSP2-NPi2025-def;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
