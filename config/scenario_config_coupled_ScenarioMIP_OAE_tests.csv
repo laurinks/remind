@@ -1,0 +1,11 @@
+title;start;copyConfigFrom;oldrun;path_report;qos;config/scenario_config.csv;no_ghgprices_land_until;var_luc;path_gdx;path_gdx_bau;path_gdx_ref;cfg_mag$gms$s15_elastic_demand;cfg_mag$gms$s32_aff_plantation;cfg_mag$gms$s32_npi_ndc_reversal;cfg_mag$gms$s35_npi_ndc_reversal
+SMIPv04-M-SSP2-NPi2025-def;0,SSP2,M,default;;;;;SSP2|NPI|nocc_hist;y2150;;;;;1;0;;
+SMIPv04-VLHO-SSP2-EcBudg400-def;0,SSP2,VLHO,default;;;;;SSP2|NDC|nocc_hist;y2030;;;;;1;0;;
+SMIPv04-VLHO-SSP2-EcBudg400-var_OAE;0,SSP2,VLHO;SMIPv04-VLHO-SSP2-EcBudg400-def;;;;;;;;;;;;;
+SMIPv04-VLHO-SSP2-EcBudg400-var_OAE_5Gt;0,SSP2,VLHO;SMIPv04-VLHO-SSP2-EcBudg400-def;;;;;;;;;;;;;
+SMIPv04-VLHO-SSP2-EcBudg400-var_OAE_pess;0,SSP2,VLHO;SMIPv04-VLHO-SSP2-EcBudg400-def;;;;;;;;;;;;;
+SMIPv04-VLHO-SSP2-EcBudg400-var_OAE_5Gt_pess;0,SSP2,VLHO;SMIPv04-VLHO-SSP2-EcBudg400-def;;;;;;;;;;;;;
+SMIPv04-VLHO-SSP2-EcPrice1000-var_OAE;0,SSP2,VLHO;SMIPv04-VLHO-SSP2-EcBudg400-def;;;;;;;;;;;;;
+SMIPv04-VLHO-SSP2-EcPrice1000-var_OAE_5Gt;0,SSP2,VLHO;SMIPv04-VLHO-SSP2-EcBudg400-def;;;;;;;;;;;;;
+SMIPv04-VLHO-SSP2-EcPrice1000-var_OAE_pess;0,SSP2,VLHO;SMIPv04-VLHO-SSP2-EcBudg400-def;;;;;;;;;;;;;
+SMIPv04-VLHO-SSP2-EcPrice1000-var_OAE_5Gt_pess;0,SSP2,VLHO;SMIPv04-VLHO-SSP2-EcBudg400-def;;;;;;;;;;;;;
