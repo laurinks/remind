@@ -161,4 +161,6 @@ loop ((ue_industry_dyn37(in),regi_groupExt(regi_fxDem37(ext_regi),regi)),
 );
 $endif.fixedUE_scenario
 
+vm_demFeSector_afterTax.lo(t,regi,entySe,"fesos","indst",emiMkt)$(NOT sameAs(emiMkt, "other")) = 1e-9;
+
 *** EOF ./modules/37_industry/subsectors/bounds.gms

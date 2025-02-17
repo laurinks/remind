@@ -25,6 +25,7 @@ pm_taxrevCO2Sector0(ttot,all_regi,emi_sectors)               "reference level va
 pm_taxrevCO2LUC0(ttot,all_regi)                              "reference level value of co2luc emission tax"
 p21_taxrevCCS0(ttot,all_regi)                                "reference level value of CCS tax"
 pm_taxrevNetNegEmi0(ttot,all_regi)                           "reference level value of net-negative emissions tax"
+p21_taxrevCDRexceedance0(ttot,all_regi)                      "reference level value of CDR exceedance tax"
 p21_emiALLco2neg0(ttot,all_regi)                             "reference level value of negative CO2 emissions for taxes"
 p21_taxrevPE0(ttot,all_regi,all_enty)                        "reference level value of primary energy tax"
 p21_taxrevFE0(ttot,all_regi)                                 "reference level value of final energy tax"
@@ -43,6 +44,7 @@ p21_taxrevSE0(ttot,all_regi)                                 "reference level va
 p21_taxrevGHG_iter(iteration,ttot,all_regi)                "reference level value of GHG emission tax revenue"
 p21_taxrevCCS_iter(iteration,ttot,all_regi)                "reference level value of CCS tax revenue"
 p21_taxrevNetNegEmi_iter(iteration,ttot,all_regi)          "reference level value of net-negative emissions tax revenue"
+p21_taxrevCDRexceedance_iter(iteration,ttot,all_regi)      "reference level value of CDR exceedance tax revenue"
 p21_taxrevPE_iter(iteration,ttot,all_regi,all_enty)        "reference level value of primary energy tax revenue"
 p21_taxrevFE_iter(iteration,ttot,all_regi)                 "reference level value of final energy tax revenue"
 p21_taxrevCES_iter(iteration,ttot,all_regi,all_in)         "reference level value of ces production tax revenue"
@@ -64,6 +66,9 @@ p21_tau_CO2_tax_gdx(ttot,all_regi)           "tax path from gdx, may overwrite d
 p21_tau_CO2_tax_gdx_bau(ttot,all_regi)       "tax path from gdx, may overwrite default values"
 
 p21_implicitDiscRateMarg(ttot,all_regi,all_in)  "Difference between the normal discount rate and the implicit discount rate"
+
+p21_residualEmissions0(ttot,all_regi)                       "Residual emissions from previous iteration"
+p21_runningMinimumResidualEmissions0(ttot,all_regi)         "Running minimum of residual emissions from previous iteration"
 
 p21_tau_SE_tax_rampup(ttot,all_regi,all_te,teSeTax_coeff)  "Parameters of logistic function to describe relationship between SE electricity tax rate and share of technology in total electricity demand"
 $ifThen.SEtaxRampUpParam not "%cm_SEtaxRampUpParam%" == "off" 
@@ -109,6 +114,7 @@ v21_taxrevCO2Sector(ttot,all_regi,emi_sectors)  "sector markup tax on CO2 emissi
 v21_taxrevCO2luc(ttot,all_regi)                 "tax on co2luc emissions"
 v21_taxrevCCS(ttot,all_regi)                    "tax on CCS (to reflect leakage risk)"
 v21_taxrevNetNegEmi(ttot,all_regi)              "tax on net-negative emissions (to reflect climate damages due to overshoot)"
+v21_taxrevCDRexceedance(ttot,all_regi)                    "tax on CDR exceeding running minimum of residual emissions (to reflect climate damages due to overshoot)"
 v21_taxrevPE(ttot,all_regi,all_enty)            "tax on primary energy"
 v21_taxrevFE(ttot,all_regi)                     "tax on final energy (?)"
 v21_taxrevCES(ttot,all_regi,all_in)             "tax on ces production function"
@@ -128,6 +134,8 @@ Positive Variable
 v21_emiALLco2neg(ttot,all_regi)             "negative part of total CO2 emissions"
 v21_emiALLco2neg_slack(ttot,all_regi)       "dummy variable to extract negatice CO2 emissions from emiAll"
 v21_tau_SE_tax(ttot,all_regi,all_te)        "tax rate of tax on SE electricity demand, used for taxes on electrolysis"
+v21_CDRexceedingResEmi(ttot,all_regi)        "CDR exceeding running minimum of residual emisssions"
+v21_CDRexceedingResEmi_slack(ttot,all_regi)  "dummy for CDR exceeding running minimum of residual emisssions"
 ;
 
 equations 
@@ -139,6 +147,8 @@ q21_taxrevCO2Sector(ttot,all_regi,emi_sectors)  "calculation of sector markup ta
 q21_taxrevCO2luc(ttot,all_regi)                 "calculation of tax on co2luc emissions"
 q21_taxrevCCS(ttot,all_regi)                    "calculation of tax on CCS"
 q21_taxrevNetNegEmi(ttot,all_regi)              "calculation of tax on net-negative emissions"
+q21_taxrevCDRexceedance(ttot,all_regi)          "calculation of tax on CDR exceeding running minimum of residual emisssions"
+q21_CDRexceedingResEmi(ttot,all_regi)           "calculation of CDR exceeding running minimum of residual emissions"
 q21_taxrevPE(ttot,all_regi,all_enty)            "calculation of tax on primary energy"
 q21_taxrevFE(ttot,all_regi)                     "calculation of tax on final energy"
 q21_taxrevCES(ttot,all_regi,all_in)             "calculation of tax on ces production function"

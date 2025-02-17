@@ -1013,6 +1013,18 @@ parameter
 *' * (1)   No effective CO2 tax once regional emissions turn net-negative. Hence regions never become net-negative.
 
 parameter
+  cm_frac_CDRexceedance    "tax on CDR exceeding regional residual emissions to reflect risk of overshooting, formulated as fraction of carbon price"
+;
+  cm_frac_CDRexceedance    = 0.5;  !! def = 0.5
+*' This tax reduces the regional effective carbon price for CO2 once CDR exceeds regional residual emissions; default is a reduction by 50 percent.
+*' As the tax is applied to CDR exceeding the running minimum of residual emissions, further CDR but also the increase of residual emissions after peak are disincentivised.
+*' Fraction can be freely chosen. Guidelines:
+*'
+*' * (0)   No net negative tax, the full CO2 price always applies.
+*' * (0.5) Halves the effective CO2 price when regional CDR exceeds regional residual emissions.
+*' * (1)   No effective CO2 tax once regional CDR exceeds regional residual emissions.
+
+parameter
   cm_DiscRateScen          "Scenario for the implicit discount rate applied to the energy efficiency capital"
 ;
   cm_DiscRateScen        = 0;  !! def = 0  !! regexp = [0-4]

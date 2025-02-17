@@ -37,6 +37,7 @@ q21_taxrev(t,regi)$(t.val ge max(2010,cm_startyear))..
   + v21_taxrevCO2luc(t,regi)
   + v21_taxrevCCS(t,regi) 
   + v21_taxrevNetNegEmi(t,regi)
+  + v21_taxrevCDRexceedance(t,regi)
   + sum(entyPe, v21_taxrevPE(t,regi,entyPe))
   + v21_taxrevSE(t,regi)
   + v21_taxrevFE(t,regi)
@@ -115,6 +116,24 @@ v21_taxrevNetNegEmi(t,regi) =e= cm_frac_NetNegEmi * pm_taxCO2eqSum(t,regi) * v21
 ***---------------------------------------------------------------------------
 q21_emiAllco2neg(t,regi)..
 v21_emiALLco2neg(t,regi) =e= -vm_emiAll(t,regi,"co2") + v21_emiALLco2neg_slack(t,regi);
+
+***---------------------------------------------------------------------------
+*'  Calculation of tax on CDR exceeding running minimum of residual emissions
+***---------------------------------------------------------------------------
+
+q21_taxrevCDRexceedance(t,regi)$(t.val ge max(2010,cm_startyear))..
+v21_taxrevCDRexceedance(t,regi) =e= cm_frac_CDRexceedance * pm_taxCO2eqSum(t,regi) * v21_CDRexceedingResEmi(t,regi)
+                            - p21_taxrevCDRexceedance0(t,regi);
+
+***---------------------------------------------------------------------------
+*'  Auxiliary calculation of CDR exceeding running minimum of residual emissions: 
+*'  v21_CDRexceedingResEmi and v21_CDRexceedingResEmi_slack are defined as positive variables
+*'  so as long as vm_emiCdrAll is smaller than p21_runningMinimumResidualEmissions0, v21_CDRexceedingResEmi_slack adjusts so that sum is zero
+*'  if vm_emiCdrAll is larger than p21_runningMinimumResidualEmissions0, in order to minimize tax v21_CDRexceedingResEmi_slack becomes zero
+*'  adjusted test with p21_residualEmissions0(t,regi) instead of running minimum
+***---------------------------------------------------------------------------
+q21_CDRexceedingResEmi(t,regi)..
+v21_CDRexceedingResEmi(t,regi) =e= (vm_emiCdrAll(t,regi) - p21_residualEmissions0(t,regi)) + v21_CDRexceedingResEmi_slack(t,regi);
 
 ***---------------------------------------------------------------------------
 *'  Calculation of PE tax: tax rate times primary energy

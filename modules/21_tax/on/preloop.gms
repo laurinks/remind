@@ -166,6 +166,11 @@ vm_emiMac.l(ttot,regi,enty) = 0;
 *LB* initialization of v21_emiALLco2neg
 v21_emiALLco2neg.l(ttot,regi) =0;
 
+*** Initializations of v21_CDRexceedingResEmi
+v21_CDRexceedingResEmi.l(ttot,regi) = 0;
+p21_residualEmissions0(ttot,regi) = 0;
+p21_runningMinimumResidualEmissions0(ttot,regi) = 0;
+
 *DK initialize bioenergy tax
 v21_tau_bio.l(ttot) = 0;
 
