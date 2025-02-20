@@ -24,6 +24,7 @@ $IFTHEN.emiMkt not "%cm_emiMktTarget%" == "off"
       pm_taxrevCO2Sector0(t,regi,emi_sectors) = 0;
       pm_taxrevCO2LUC0(t,regi) = 0;
       pm_taxrevNetNegEmi0(t,regi) = 0;
+      pm_taxrevNetNegEmi_old0(t,regi) = 0; !! TO BE DELETED ONCE TESTS ARE COMPLETED
     );
   );
 $ENDIF.emiMkt

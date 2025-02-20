@@ -37,7 +37,7 @@ q21_taxrev(t,regi)$(t.val ge max(2010,cm_startyear))..
   + v21_taxrevCO2luc(t,regi)
   + v21_taxrevCCS(t,regi) 
   + v21_taxrevNetNegEmi(t,regi)
-  + v21_taxrevCDRexceedance(t,regi)
+  + v21_taxrevNetNegEmi_old(t,regi) !! TO BE DELETED ONCE TESTS ARE COMPLETE
   + sum(entyPe, v21_taxrevPE(t,regi,entyPe))
   + v21_taxrevSE(t,regi)
   + v21_taxrevFE(t,regi)
@@ -104,12 +104,19 @@ v21_taxrevCCS(t,regi)
 *'  Calculation of net-negative emissions tax: tax rate (defined as fraction of carbon price) times net-negative emissions
 *'  Documentation of overall tax approach is above at q21_taxrev.
 ***---------------------------------------------------------------------------
+
+*** START: TO BE DELETED ONCE TESTS ARE COMPLETED
+q21_taxrevNetNegEmi_old(t,regi)$(t.val ge max(2010,cm_startyear))..
+v21_taxrevNetNegEmi_old(t,regi) =e= cm_frac_NetNegEmi_old * pm_taxCO2eqSum(t,regi) * v21_emiALLco2neg(t,regi)
+                                 - pm_taxrevNetNegEmi_old0(t,regi);
+*** END: TO BE DELETED ONCE TESTS ARE COMPLETED
+
 q21_taxrevNetNegEmi(t,regi)$(t.val ge max(2010,cm_startyear))..
-v21_taxrevNetNegEmi(t,regi) =e= cm_frac_NetNegEmi * pm_taxCO2eqSum(t,regi) * v21_emiALLco2neg(t,regi)
+v21_taxrevNetNegEmi(t,regi) =e= cm_frac_NetNegEmi * pm_taxCO2eqSum(t,regi) * v21_emiAllco2neg_acrossIterations(t,regi)
                                  - pm_taxrevNetNegEmi0(t,regi);
 
 ***---------------------------------------------------------------------------
-*'  Auxiliary calculation of net-negative emissions: 
+*'  Auxiliary calculation of net-negative CO2 emissions in the current iteration: 
 *'  v21_emiAllco2neg and v21_emiAllco2neg_slack are defined as positive variables
 *'  so as long as vm_emiAll is positive, v21_emiAllco2neg_slack adjusts so that sum is zero
 *'  if vm_emiAll is negative, in order to minimize tax v21_emiAllco2neg_slack becomes zero
@@ -118,22 +125,13 @@ q21_emiAllco2neg(t,regi)..
 v21_emiALLco2neg(t,regi) =e= -vm_emiAll(t,regi,"co2") + v21_emiALLco2neg_slack(t,regi);
 
 ***---------------------------------------------------------------------------
-*'  Calculation of tax on CDR exceeding running minimum of residual emissions
+*'  Auxiliary calculation of net-negative CO2 emissions as difference of gross CDR in the current iteration and gross emissions in the previous iteration: 
+*'  v21_emiAllco2neg_acrossIterations and v21_emiAllco2neg_acrossIterations_slack are defined as positive variables
+*'  so as long as vm_emiCdrAll is smaller than p21_grossEmissions0, v21_emiAllco2neg_acrossIterations_slack adjusts so that sum is zero
+*'  if vm_emiCdrAll is larger than p21_grossEmissions0, in order to minimize tax v21_emiAllco2neg_acrossIterations_slack becomes zero
 ***---------------------------------------------------------------------------
-
-q21_taxrevCDRexceedance(t,regi)$(t.val ge max(2010,cm_startyear))..
-v21_taxrevCDRexceedance(t,regi) =e= cm_frac_CDRexceedance * pm_taxCO2eqSum(t,regi) * v21_CDRexceedingResEmi(t,regi)
-                            - p21_taxrevCDRexceedance0(t,regi);
-
-***---------------------------------------------------------------------------
-*'  Auxiliary calculation of CDR exceeding running minimum of residual emissions: 
-*'  v21_CDRexceedingResEmi and v21_CDRexceedingResEmi_slack are defined as positive variables
-*'  so as long as vm_emiCdrAll is smaller than p21_runningMinimumResidualEmissions0, v21_CDRexceedingResEmi_slack adjusts so that sum is zero
-*'  if vm_emiCdrAll is larger than p21_runningMinimumResidualEmissions0, in order to minimize tax v21_CDRexceedingResEmi_slack becomes zero
-*'  adjusted test with p21_residualEmissions0(t,regi) instead of running minimum
-***---------------------------------------------------------------------------
-q21_CDRexceedingResEmi(t,regi)..
-v21_CDRexceedingResEmi(t,regi) =e= (vm_emiCdrAll(t,regi) - p21_residualEmissions0(t,regi)) + v21_CDRexceedingResEmi_slack(t,regi);
+q21_emiAllco2neg_acrossIterations(t,regi)..
+v21_emiAllco2neg_acrossIterations(t,regi) =e= (vm_emiCdrAll(t,regi) - p21_grossEmissions0(t,regi)) + v21_emiAllco2neg_acrossIterations_slack(t,regi);
 
 ***---------------------------------------------------------------------------
 *'  Calculation of PE tax: tax rate times primary energy

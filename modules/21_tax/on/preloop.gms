@@ -161,23 +161,22 @@ $ifThen.SEtaxRampUpParam not "%cm_SEtaxRampUpParam%" == "off"
                                   / pm_cf(t,regi,"tdels");
 $endif.SEtaxRampUpParam
 
-*LB* initialization of vm_emiMac
+*** initialization of vm_emiMac
 vm_emiMac.l(ttot,regi,enty) = 0;
-*LB* initialization of v21_emiALLco2neg
+*** initialization of v21_emiALLco2neg and v21_emiAllco2neg_acrossIterations
 v21_emiALLco2neg.l(ttot,regi) =0;
+v21_emiAllco2neg_acrossIterations.l(ttot,regi) =0;
 
-*** Initializations of v21_CDRexceedingResEmi
-v21_CDRexceedingResEmi.l(ttot,regi) = 0;
-p21_residualEmissions0(ttot,regi) = 0;
-p21_runningMinimumResidualEmissions0(ttot,regi) = 0;
+*** Initializations of p21_grossEmissions0
+p21_grossEmissions0(ttot,regi) = 0; 
 
-*DK initialize bioenergy tax
+*** initialize bioenergy tax
 v21_tau_bio.l(ttot) = 0;
 
-*** FS: initialize flexibility tax
+*** initialize flexibility tax
 vm_flexAdj.l(ttot,all_regi,all_te) = 0;
 
-*** FS: set market price of good to non-zero to avoid division by zero in first iteration
+*** set market price of good to non-zero to avoid division by zero in first iteration
 pm_pvp(ttot,"good")$(pm_pvp(ttot,"good") = 0) = sm_eps;
 
 *** initialize taxrevImport
