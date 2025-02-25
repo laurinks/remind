@@ -167,8 +167,8 @@ vm_emiMac.l(ttot,regi,enty) = 0;
 v21_emiALLco2neg.l(ttot,regi) =0;
 v21_emiAllco2neg_acrossIterations.l(ttot,regi) =0;
 
-*** Initializations of p21_grossEmissions0
-p21_grossEmissions0(ttot,regi) = 0; 
+*** initialization of p21_grossEmissions
+p21_grossEmissions(iteration,t,regi) = 0;
 
 *** initialize bioenergy tax
 v21_tau_bio.l(ttot) = 0;

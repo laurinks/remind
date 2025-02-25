@@ -68,7 +68,8 @@ p21_tau_CO2_tax_gdx_bau(ttot,all_regi)                     "tax path from gdx, m
 
 p21_implicitDiscRateMarg(ttot,all_regi,all_in)             "Difference between the normal discount rate and the implicit discount rate"
 
-p21_grossEmissions0(ttot,all_regi)                         "Gross emissions in the previous iteration"
+p21_grossEmissions(iteration,ttot,all_regi)                "Gross CO2 emissions"
+p21_referenceGrossEmissions(ttot,all_regi)                 "Reference gross CO2 emissions used for computation of net-negative emissions"
 
 p21_tau_SE_tax_rampup(ttot,all_regi,all_te,teSeTax_coeff)  "Parameters of logistic function to describe relationship between SE electricity tax rate and share of technology in total electricity demand"
 $ifThen.SEtaxRampUpParam not "%cm_SEtaxRampUpParam%" == "off" 
@@ -105,6 +106,7 @@ Scalars
 s21_so2_tax_2010                             "SO2 tax value in 2010 in 10^12$/TgS = 10^6 $/t S"
 s21_tax_time                                 "time when final tax level is reached"
 s21_tax_value                                "target level of tax, sub, inconv in $/GJ, must always be rescaled after setting"
+s21_frac_NetNegEmi                           "parameter used for fade-in of cm_frac_NetNegEmi"
 ;
 
 variables

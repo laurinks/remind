@@ -24,10 +24,10 @@ pm_taxrevCO2LUC0(t,regi) = pm_taxCO2eqSum(t,regi) * vm_emiMacSector.l(t,regi,"co
 p21_taxrevCCS0(ttot,regi) = cm_frac_CCS * pm_data(regi,"omf","ccsinje") * pm_inco0_t(ttot,regi,"ccsinje") 
                             * ( sum(teCCS2rlf(te,rlf), sum(ccs2te(ccsCo2(enty),enty2,te), vm_co2CCS.l(ttot,regi,enty,enty2,te,rlf) ) ) )
                             * (1/pm_ccsinjecrate(regi)) * sum(teCCS2rlf(te,rlf), sum(ccs2te(ccsCo2(enty),enty2,te), vm_co2CCS.l(ttot,regi,enty,enty2,te,rlf) ) ) / pm_dataccs(regi,"quan","1");
-pm_taxrevNetNegEmi0(ttot,regi) = cm_frac_NetNegEmi * pm_taxCO2eqSum(ttot,regi) * v21_emiAllco2neg_acrossIterations.l(ttot,regi);
+pm_taxrevNetNegEmi0(ttot,regi) = s21_frac_NetNegEmi * pm_taxCO2eqSum(ttot,regi) * v21_emiAllco2neg_acrossIterations.l(ttot,regi);
 pm_taxrevNetNegEmi_old0(ttot,regi) = cm_frac_NetNegEmi_old * pm_taxCO2eqSum(ttot,regi) * v21_emiALLco2neg.l(ttot,regi);
 
-display pm_taxrevNetNegEmi0, v21_emiAllco2neg_acrossIterations.l, v21_emiAllco2neg_acrossIterations_slack.l, p21_grossEmissions0, vm_emiCdrAll.l; !! TO BE DELETED ONCE TESTS ARE COMPLETED
+display pm_taxrevNetNegEmi0, v21_emiAllco2neg_acrossIterations.l, v21_emiAllco2neg_acrossIterations_slack.l, vm_emiCdrAll.l; !! TO BE DELETED ONCE TESTS ARE COMPLETED
 display pm_taxrevNetNegEmi_old0, v21_emiALLco2neg.l, v21_emiALLco2neg_slack.l, vm_emiAll.l; !! TO BE DELETED ONCE TESTS ARE COMPLETED
 
 
@@ -87,9 +87,8 @@ p21_taxrevChProdStartYear_iter(iteration+1,t,regi) = v21_taxrevChProdStartYear.l
 p21_taxrevSE_iter(iteration+1,t,regi) = v21_taxrevSE.l(t,regi);
 
 *** Save gross emissions of current iteration
-p21_grossEmissions0(t,regi) = vm_emiAll.l(t,regi,"co2") + vm_emiCdrAll.l(t,regi);
+p21_grossEmissions(iteration,t,regi) = vm_emiAll.l(t,regi,"co2") + vm_emiCdrAll.l(t,regi);
 
-display p21_grossEmissions0, vm_emiCdrAll.l, vm_emiAll.l; !! TO BE DELETED ONCE TESTS ARE COMPLETED
 
 
 display p21_taxrevFE_iter;
