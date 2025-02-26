@@ -75,9 +75,15 @@ if(iteration.val eq 1, !! Equal to zero in first iteration (note that no NNE tax
     p21_referenceGrossEmissions(ttot,regi) = 0; 
   elseif iteration.val le 20, !! Equal to gross emissions from previous iteration
     p21_referenceGrossEmissions(ttot,regi) = sum(iteration2$(iteration2.val eq iteration.val - 1), p21_grossEmissions(iteration2,ttot,regi));
-  else !! Equal to average gross emissions of previous two iterations
-    p21_referenceGrossEmissions(ttot,regi) = sum(iteration2$((iteration2.val eq iteration.val - 1) or (iteration2.val eq iteration.val - 2)), p21_grossEmissions(iteration2,ttot,regi)) / 2;
+  else !! Equal to weighted average gross emissions of previous three iterations
+    p21_referenceGrossEmissions(ttot,regi) = sum(iteration2$(iteration2.val eq iteration.val - 3), p21_grossEmissions(iteration2,ttot,regi)) / 6
+                                             + sum(iteration2$(iteration2.val eq iteration.val - 2), p21_grossEmissions(iteration2,ttot,regi)) / 3
+                                             + sum(iteration2$(iteration2.val eq iteration.val - 1), p21_grossEmissions(iteration2,ttot,regi)) / 2;
 );
+
+p21_referenceGrossEmissions_iter(iteration,ttot,regi) = p21_referenceGrossEmissions(ttot,regi);
+
+
   
 
 *** EOF ./modules/21_tax/on/presolve.gms

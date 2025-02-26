@@ -70,6 +70,7 @@ p21_implicitDiscRateMarg(ttot,all_regi,all_in)             "Difference between t
 
 p21_grossEmissions(iteration,ttot,all_regi)                "Gross CO2 emissions"
 p21_referenceGrossEmissions(ttot,all_regi)                 "Reference gross CO2 emissions used for computation of net-negative emissions"
+p21_referenceGrossEmissions_iter(iteration,ttot,all_regi)      "Tracked over iterations for debugging" !! TO BE DELETED AFTER TESTS
 
 p21_tau_SE_tax_rampup(ttot,all_regi,all_te,teSeTax_coeff)  "Parameters of logistic function to describe relationship between SE electricity tax rate and share of technology in total electricity demand"
 $ifThen.SEtaxRampUpParam not "%cm_SEtaxRampUpParam%" == "off" 
