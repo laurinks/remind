@@ -1013,10 +1013,12 @@ parameter
 ;
   cm_frac_CCS          = 10;   !! def = 10
 *'
+
+*** START: TO BE DELETED ONCE TESTS ARE COMPLETED
 parameter
-  cm_frac_NetNegEmi    "tax on net negative emissions to reflect risk of overshooting, formulated as fraction of carbon price"
+  cm_frac_NetNegEmi_old    "tax on net negative emissions to reflect risk of overshooting, formulated as fraction of carbon price"
 ;
-  cm_frac_NetNegEmi    = 0.5;  !! def = 0.5
+  cm_frac_NetNegEmi_old    = 0.5;  !! def = 0.5
 *' This tax reduces the regional effective carbon price for CO2 once regional net CO2 emissions turn negative; default is a reduction by 50 percent.
 *' As the tax applies to net CO2 emissions, both further emission reductions and CDR are disincentivised.
 *' Fraction can be freely chosen. Guidelines:
@@ -1024,6 +1026,19 @@ parameter
 *' * (0)   No net negative tax, the full CO2 price always applies.
 *' * (0.5) Halves the effective CO2 price when regional net CO2 emissions turn negative.
 *' * (1)   No effective CO2 tax once regional emissions turn net-negative. Hence regions never become net-negative.
+*** END: TO BE DELETED ONCE TESTS ARE COMPLETED
+
+parameter
+  cm_frac_NetNegEmi    "tax on net negative emissions to reflect risk of overshooting, formulated as fraction of carbon price"
+;
+  cm_frac_NetNegEmi    = 0.5;  !! def = 0.5
+*' This tax reduces the regional effective carbon price for net-negative CO2 emissions; default is a reduction by 50 percent.
+*' As the tax is applied to the difference of gross CDR in the current iteration and gross emissions in the previous iteration, gross CDR beyond net-zero CO2 is disincentivised without incentivising gross emissions.
+*' Fraction can be freely chosen. Guidelines:
+*'
+*' * (0)   No net negative tax, the full CO2 price always applies.
+*' * (0.5) Halves the effective CO2 price for gross CDR exceeding gross emissions.
+*' * (1)   No effective CO2 tax for gross CDR exceeding gross emissions.
 
 parameter
   cm_H2InBuildOnlyAfter "Switch to fix H2 in buildings to zero until given year"
