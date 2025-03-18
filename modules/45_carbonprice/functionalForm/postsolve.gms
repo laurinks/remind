@@ -79,9 +79,9 @@ if((cm_iterative_target_adj eq 5) OR (cm_iterative_target_adj eq 9),
 
       !! CO2 tax rescale factor
       if(iteration.val lt 10,
-        p45_factorRescale_taxCO2(iteration) = max(0.1, (s45_actualbudgetco2/cm_budgetCO2from2020) ) ** s45_factorRescale_taxCO2_exponent_before10;
+        p45_factorRescale_taxCO2(iteration) = max(0.1, min(10, (s45_actualbudgetco2/cm_budgetCO2from2020)) ) ** s45_factorRescale_taxCO2_exponent_before10;
       else
-        p45_factorRescale_taxCO2(iteration) = max(0.1, (s45_actualbudgetco2/cm_budgetCO2from2020) ) ** s45_factorRescale_taxCO2_exponent_from10;
+        p45_factorRescale_taxCO2(iteration) = max(0.1, min(10, (s45_actualbudgetco2/cm_budgetCO2from2020)) ) ** s45_factorRescale_taxCO2_exponent_from10;
       );
       p45_factorRescale_taxCO2_Funneled(iteration) 
         = max(min( 2 * EXP( -0.15 * iteration.val ) + 1.01 ,p45_factorRescale_taxCO2(iteration)),
@@ -92,10 +92,29 @@ if((cm_iterative_target_adj eq 5) OR (cm_iterative_target_adj eq 9),
       p45_factorRescale_taxCO2(iteration) = 0.8;
       p45_factorRescale_taxCO2_Funneled(iteration) = p45_factorRescale_taxCO2(iteration);
     );
+
+    !! Mechanism to dampen flip-flop behavior
+    !! if algorithm attempts to revert rescaling of previous iteration, we allow to revert at most half of previous rescaling
+    if( (iteration.val > 2),
+      !! Rescale factor from previous iteration
+      s45_factorRescale_taxCO2_Funneled_prevIter = sum(iteration2$(iteration2.val eq iteration.val -1),p45_factorRescale_taxCO2_Funneled(iteration2));
+      !! Rescale factor from current iteration
+      s45_factorRescale_taxCO2_Funneled_attempted = p45_factorRescale_taxCO2_Funneled(iteration);
+      display s45_factorRescale_taxCO2_Funneled_prevIter, s45_factorRescale_taxCO2_Funneled_attempted;
+
+      if( (sign(s45_factorRescale_taxCO2_Funneled_prevIter - 1) + sign(s45_factorRescale_taxCO2_Funneled_attempted - 1) eq 0), !! check for opposite signs
+        if(s45_factorRescale_taxCO2_Funneled_prevIter gt 1,     !! avoid p45_factorRescale_taxCO2_Funneled(iteration) getting too small
+          p45_factorRescale_taxCO2_Funneled(iteration) = max( (1 + 1 / s45_factorRescale_taxCO2_Funneled_prevIter) / 2, s45_factorRescale_taxCO2_Funneled_attempted );   
+        elseif s45_factorRescale_taxCO2_Funneled_prevIter lt 1, !! avoid p45_factorRescale_taxCO2_Funneled(iteration) getting too large
+          p45_factorRescale_taxCO2_Funneled(iteration) = min( (1 + 1 / s45_factorRescale_taxCO2_Funneled_prevIter) / 2, s45_factorRescale_taxCO2_Funneled_attempted );   
+        );
+      );
+    );
+    
     display p45_taxCO2eq_anchor, p45_taxCO2eq_anchor_until2150, p45_factorRescale_taxCO2, p45_factorRescale_taxCO2_Funneled;
 
     !! Apply CO2 tax rescale factor
-    p45_taxCO2eq_anchor_until2150(t) = max(1* sm_DptCO2_2_TDpGtC, p45_taxCO2eq_anchor_until2150(t) * p45_factorRescale_taxCO2_Funneled(iteration) );
+    p45_taxCO2eq_anchor_until2150(t) = max(0, p45_taxCO2eq_anchor_until2150(t) * p45_factorRescale_taxCO2_Funneled(iteration) );
     display p45_taxCO2eq_anchor_until2150;
 
     !! If functionalForm is linear, re-adjust global anchor trajectory to go through the point (cm_taxCO2_historicalYr, cm_taxCO2_historical) 

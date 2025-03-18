@@ -20,6 +20,9 @@ s45_regiDiff_gdpThreshold                   "reference value for GDP per capita 
 $else.taxCO2regiDiff1
 s45_regiDiff_startYr                        "year until which initial ratios of CO2 prices are applied and after which convergence starts"
 $endIf.taxCO2regiDiff1
+
+s45_factorRescale_taxCO2_Funneled_prevIter  "p45_factorRescale_taxCO2_Funneled from previous iteration"
+s45_factorRescale_taxCO2_Funneled_attempted "p45_factorRescale_taxCO2_Funneled attempted in current iteration before dampening"
 ;
 
 parameters
