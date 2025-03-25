@@ -1,0 +1,76 @@
+---
+output: reprex::reprex_document
+knit: reprex::reprex_render
+---
+
+Setup libraries, paths to gdx files and read function.
+
+```{r}
+library(tidyverse)
+library(quitte)
+
+### Set paths to GDX files
+setwd("/p/tmp/laurinko/netNegEmiTax/remind")
+base.path <- './output'
+data.files <- c(
+  'SSP2-PkBudg1000_2025-03-14_16.31.04/fulldata.gdx',
+  'SSP2-PkBudg1000_old-NNET_new-algo_2025-03-18_18.44.50/fulldata.gdx',
+  'SSP2-PkBudg1000_new-NNET_2025-03-14_17.01.44/fulldata.gdx',
+  'SSP2-PkBudg1000_new-NNET_new-algo_2025-03-18_18.46.08/fulldata.gdx',
+  'SSP2-PkBudg650_2025-03-17_09.40.40/fulldata.gdx',
+  'SSP2-PkBudg650_old-NNET_new-algo_2025-03-18_18.44.34/fulldata.gdx',
+  'SSP2-PkBudg650_new-NNET_2025-03-14_17.01.19/fulldata.gdx',
+  'SSP2-PkBudg650_new-NNET_new-algo_2025-03-18_18.45.53/fulldata.gdx',
+  'SSP2-EcBudg400_2025-03-14_16.31.10/fulldata.gdx',
+  'SSP2-EcBudg400_new-algo_2025-03-18_18.45.04/fulldata.gdx',
+  NULL)
+
+# Function to read GDX file and extract parameters
+read_gdx_file <- function(file) {
+  file_path <- paste(base.path, file, sep = "/")
+  
+  # Read each variable, convert to tibble, and add 'variable' column
+  data_list <- map(variables, function(var) {
+    df <- as_tibble(read.gdx(file_path, var, squeeze = FALSE))  # Convert to tibble
+    df <- df %>% mutate(variable = var)  # Add variable name
+    return(df)
+  })
+  
+  # Combine all variables for this file into a single dataframe
+  df_combined <- bind_rows(data_list) %>%
+    mutate(scenario = str_remove(file, "/fulldata.gdx"))  # Add scenario column
+
+  return(df_combined)
+}
+
+```
+
+
+```{r, fig.width=8, fig.height=6, message = FALSE, warning = FALSE}
+# Define the list of variables to read
+variables <- c(
+    "p45_factorRescale_taxCO2",
+    "p45_factorRescale_taxCO2_Funneled",
+    NULL
+    )  
+
+data <- tibble()
+
+# Loop over all files and combine results
+for (file in data.files) {
+    df.tmp <- read_gdx_file(file)
+    data <- bind_rows(data,df.tmp)
+}
+
+file.names <- str_remove(data.files, "/fulldata.gdx")
+
+data <- data %>% mutate(scenario = factor(scenario, levels = file.names))
+
+p <- ggplot(data = data, mapping = aes(x = iteration, y = value, color = variable)) + geom_line() + facet_wrap(~scenario) +
+        scale_y_continuous(trans = "log2") +
+        labs(x = "iteration", y = "factor") +
+        ylim(0.5, 2) +
+        theme(legend.position = "bottom")
+
+ggsave("./R-analysis/45-postsolve-analysis.png", width = 14, height = 10, p)
+```
