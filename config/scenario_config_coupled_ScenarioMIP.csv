@@ -40,8 +40,8 @@ SMIPv06-L-SSP1-EcPrice300-var;0,L,SSP1,var;SMIPv06-L-SSP1-EcPrice350-def;SMIPv06
 SMIPv06-L-SSP1-EcPrice400-var;0,L,SSP1,var;SMIPv06-L-SSP1-EcPrice350-def;SMIPv06-L-SSP1-PkBudg1000-def;;;;;;;;;;;;;;;;;;;
 SMIPv06-VLHO-SSP2-EcBudg400-var_natveg;0,VLHO,SSP2,var;SMIPv06-VLHO-SSP2-EcBudg400-def;SMIPv06-VLHO-SSP2-EcBudg400-var_natveg;;;SSP2|NPI|AR-natveg|nocc_hist;;;;;;;;;;;;;;;;
 SMIPv06-VLHO-SSP2-EcPrice1000-var;0,VLHO,SSP2,var;SMIPv06-VLHO-SSP2-EcBudg400-def;SMIPv06-VLHO-SSP2-EcPrice1000-var;;;;;;;;;;;;;;;;;;;
-SMIPv06-VLHO-SSP2-EcPrice1200-var;0,VLHO,SSP2,var;SMIPv06-VLHO-SSP2-EcBudg400-def;SMIPv06-VLHO-SSP2-EcPrice1200-var;;;;;;;;;;;;;;;;;;;
-SMIPv06-VLHO-SSP2-EcPrice1250-var;0,VLHO,SSP2,var;SMIPv06-VLHO-SSP2-EcBudg400-def;SMIPv06-VLHO-SSP2-EcPrice1200-var;;;;;;;;;;;;;;;;;;;
+SMIPv06-VLHO-SSP2-EcPrice1200-var;0,VLHO,SSP2,var;SMIPv06-VLHO-SSP2-EcBudg400-def;SMIPv06-VLHO-SSP2-EcPrice1000-var;;;;;;;;;;;;;;;;;;;
+SMIPv06-VLHO-SSP2-EcPrice1250-var;0,VLHO,SSP2,var;SMIPv06-VLHO-SSP2-EcBudg400-def;SMIPv06-VLHO-SSP2-EcBudg400-def;;;;;;;;;;;;;;;;;;;
 SMIPv06-VLHO-SSP2-EcPrice1400-var;0,VLHO,SSP2,var;SMIPv06-VLHO-SSP2-EcBudg400-def;SMIPv06-VLHO-SSP2-EcPrice1400-var;;;;;;;;;;;;;;;;;;;
 SMIPv06-VLLO-SSP1-PkPrice750-var;0,VLLO,SSP1,var;SMIPv06-VLLO-SSP1-PkPrice500-def;SMIPv06-VLLO-SSP1-PkPrice800-var;;;;;;;;;;;;;;;;;;;
 SMIPv06-VLLO-SSP1-PkPrice1000-var;0,VLLO,SSP1,var;SMIPv06-VLLO-SSP1-PkPrice500-def;SMIPv06-VLLO-SSP1-PkPrice1000-var;;;;;;;;;;;;;;;;;;;
