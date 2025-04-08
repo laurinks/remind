@@ -65,6 +65,7 @@ SMIPv06-VLLO-SSP2-PkPrice500-var_noCH4N2Ocap;0,VLLO,SSP2,var;SMIPv06-VLLO-SSP2-P
 SMIPv06-L-SSP1-EcPrice350-var_noCH4N2Ocap;0,L,SSP1,var;SMIPv06-L-SSP1-EcPrice350-def;;;;;;;;;;;;;;;;;4920;;;
 SMIPv06-VLHO-SSP1-EcBudg400-var_noCH4N2Ocap;0,VLHO,SSP1,var;SMIPv06-VLHO-SSP1-EcBudg400-def;;;;;;;;;;;;;;;;;4920;;;
 SMIPv06-VLLO-SSP1-PkPrice500-var_noCH4N2Ocap;0,VLLO,SSP1,var;SMIPv06-VLLO-SSP1-PkPrice500-def;;;;;;;;;;;;;;;;;4920;;;
+SMIPv06-M-SSP1-NPi2025-def-var_optimisticMACCs;0,M,SSP1,var;SMIPv06-M-SSP1-NPi2025-def;SMIPv06-M-SSP1-NPi2025-def;;;;;;;;;;;;;;;;;;;
 SMIPv06-ML-SSP1-EcPrice175-var_optimisticMACCs;0,ML,SSP1,var;SMIPv06-ML-SSP1-Ec175-var;SMIPv06-ML-SSP1-Ec175-var;;;;;;;;;;;;;;;;;;;
 SMIPv06-ML-SSP1-EcPrice200-var_optimisticMACCs;0,ML,SSP1,var;SMIPv06-ML-SSP1-EcPrice200-def;SMIPv06-ML-SSP1-Ec190-var;;;;;;;;;;;;;;;;;;;
 SMIPv06-ML-SSP1-EcPrice225-var_optimisticMACCs;0,ML,SSP1,var;SMIPv06-ML-SSP1-Ec225-var;SMIPv06-ML-SSP1-Ec225-var;;;;;;;;;;;;;;;;;;;
