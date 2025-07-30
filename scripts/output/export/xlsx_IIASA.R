@@ -51,7 +51,7 @@ projects <- list(
   RIKEN = list(model = "REMIND-MAgPIE 3.4-4.8",
                mapping = c("ScenarioMIP", "MAGICC7_AR6"),
                checkSummation = "ScenarioMIP"),
-  ScenarioMIP = list(model = "REMIND-MAgPIE 3.5-4.10",
+  ScenarioMIP = list(model = "REMIND-MAgPIE 3.5-4.11",
                      mapping = "ScenarioMIP",
                      iiasatemplate = "https://files.ece.iiasa.ac.at/ssp-submission/ssp-submission-template.xlsx",
                      renameScen = c(
@@ -70,6 +70,7 @@ projects <- list(
                       "SMIPv07-L-SSP1-EcPrice300-var_yr2050" = "SSP1 - Low Emissions_d",
                       "SMIPv07-L-SSP2-EcPrice600-var_yr2050" = "SSP2 - Low Emissions_d",
                       "SMIPv07-VLHO-SSP2-EcPrice1300-def" = "SSP2 - Low Overshoot",
+                      "SMIPv07-VLHO-SSP2-EcBudg500-var_natveg" = "SSP2 - Low Overshoot_b",
                       "SMIPv07-VLHO-SSP2-EcPrice1300-var_yr2035" = "SSP2 - Low Overshoot_c",
                       "SMIPv07-VLHO-SSP2-EcPrice1300-var_yr2050" = "SSP2 - Low Overshoot_d",
                       "SMIPv07-VLLO-SSP1-PkPrice500-def" = "SSP1 - Very Low Emissions",
