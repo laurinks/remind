@@ -33,5 +33,3 @@ SMIPv08-M-SSP1-NDC-var;1;SMIPv08-M-SSP1-NPi2025-def;;;;3;globallyOptimal;;NDC;;;
 #___ScenarioMIP_VLHO_variants___;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 SMIPv08-VLHO-SSP2-EcBudg500-var_natveg;1;SMIPv08-VLHO-SSP2-EcPrice1300-def;;;;5;;500;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 SMIPv08-VLHO-SSP2-EcBudg500-var;1;SMIPv08-VLHO-SSP2-EcPrice1300-def;;;;5;;500;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-#___RIKEN___;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-RIKEN-VLLO-SSP2-PkPrice500-var;1;SMIPv08-VLLO-SSP2-PkPrice500-def;;;;;;;;;;;;;;;off;;;;;0.5;;1;;standard;standard;;;;;;;;;;;;;3;;;;;;;SMIPbySSP;;;;;;;;
